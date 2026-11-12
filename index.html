@@ -1,363 +1,408 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Saniya Siddiqui | Economics × Data Analytics × Data Science × AI/ML</title>
-
-    <meta name="description"
-          content="Portfolio of Saniya Siddiqui — Economics postgraduate exploring Data Science, Machine Learning and AI.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --bg: #0b0f19;
-            --card: #121827;
-            --text: #f5f7ff;
-            --muted: #a8b0c2;
-            --accent: #8b7cff;
-            --accent2: #58c7ff;
-            --border: rgba(255,255,255,0.09);
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* NAVBAR */
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(15px);
-            background: rgba(11,15,25,0.75);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: white;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 25px 80px;
-            background:
-                radial-gradient(circle at 50% 30%,
-                rgba(139,124,255,0.18),
-                transparent 40%);
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            padding: 8px 16px;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            color: var(--muted);
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 8vw, 85px);
-            line-height: 1.05;
-            margin-bottom: 20px;
-            letter-spacing: -3px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero h2 {
-            font-size: clamp(20px, 3vw, 30px);
-            font-weight: 400;
-            color: var(--muted);
-            margin-bottom: 25px;
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin: auto;
-            color: var(--muted);
-            font-size: 17px;
-        }
-
-        .buttons {
-            margin-top: 35px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 13px 23px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            transition: 0.3s;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        /* GENERAL */
-
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 100px 25px;
-        }
-
-        .section-title {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .section-subtitle {
-            color: var(--muted);
-            margin-bottom: 45px;
-        }
-
-        /* ABOUT */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 30px;
-        }
-
-        .card p {
-            color: var(--muted);
-        }
-
-        /* SKILLS */
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill {
-            padding: 10px 16px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            border-radius: 50px;
-            color: var(--muted);
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            color: white;
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        /* PROJECTS */
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .project {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 30px;
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-7px);
-            border-color: rgba(139,124,255,0.5);
-        }
-
-        .project-number {
-            color: var(--accent);
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .project h3 {
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .project p {
-            color: var(--muted);
-            margin-bottom: 20px;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .project-tags span {
-            font-size: 12px;
-            color: var(--muted);
-            border: 1px solid var(--border);
-            padding: 5px 9px;
-            border-radius: 6px;
-        }
-
-        /* EDUCATION */
-
-        .timeline {
-            border-left: 2px solid var(--border);
-            padding-left: 30px;
-        }
-
-        .timeline-item {
-            margin-bottom: 35px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: "";
-            width: 10px;
-            height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-            position: absolute;
-            left: -36px;
-            top: 7px;
-        }
-
-        .timeline-item h3 {
-            margin-bottom: 5px;
-        }
-
-        .timeline-item p {
-            color: var(--muted);
-        }
-
-        /* CONTACT */
-
-        .contact {
-            text-align: center;
-            background:
-                radial-gradient(circle at center,
-                rgba(88,199,255,0.10),
-                transparent 45%);
-        }
-
-        .contact p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: var(--muted);
-        }
-
-        /* FOOTER */
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 750px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .about-grid,
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                letter-spacing: -2px;
-            }
-
-            section {
-                padding: 75px 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saniya Siddiqui | Economics × Data Science × AI/ML</title>
+
+<meta name="description" content="Portfolio of Saniya Siddiqui, PhD Scholar in Economics at the University of Lucknow, with training in Data Analytics, Data Science, Artificial Intelligence and Machine Learning.">
+
+<meta name="theme-color" content="#0b0f19">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #0b0f19;
+    --card: #121827;
+    --text: #f5f7ff;
+    --muted: #a8b0c2;
+    --accent: #8b7cff;
+    --accent2: #58c7ff;
+    --border: rgba(255,255,255,0.09);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    background: rgba(11,15,25,0.85);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 25px 80px;
+    background:
+        radial-gradient(circle at 50% 30%,
+        rgba(139,124,255,0.18),
+        transparent 40%);
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 85px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+    letter-spacing: -3px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.hero p {
+    max-width: 680px;
+    margin: auto;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 23px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 25px;
+}
+
+.section-title {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    margin-bottom: 45px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+/* RESEARCH INTERESTS */
+
+.research-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.research-item {
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 50px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* SKILLS */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill {
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 50px;
+    color: var(--muted);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    color: white;
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* PROJECTS */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.project {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-7px);
+    border-color: rgba(139,124,255,0.5);
+}
+
+.project-number {
+    color: var(--accent);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.project h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.project p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.project-tags span {
+    font-size: 12px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 5px 9px;
+    border-radius: 6px;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+/* EDUCATION AND ACHIEVEMENTS */
+
+.timeline {
+    border-left: 2px solid var(--border);
+    padding-left: 30px;
+}
+
+.timeline-item {
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    left: -36px;
+    top: 7px;
+}
+
+.timeline-item h3 {
+    margin-bottom: 5px;
+}
+
+.timeline-item p {
+    color: var(--muted);
+}
+
+.timeline-item .btn {
+    margin-top: 12px;
+}
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+    background:
+        radial-gradient(circle at center,
+        rgba(88,199,255,0.10),
+        transparent 45%);
+}
+
+.contact p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 750px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .about-grid,
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    section {
+        padding: 75px 20px;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -373,6 +418,7 @@
 
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
@@ -384,7 +430,7 @@
 </nav>
 
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 
 <header class="hero">
 
@@ -399,12 +445,15 @@
         </h1>
 
         <h2>
-            Turning data into meaningful insights.
+            Bridging Economics, Data and Technology.
         </h2>
 
         <p>
-            Economics postgraduate working at intersection of
-            data analytics, data science, machine learning and economic thinking.
+            PhD Scholar in Economics at the University of Lucknow,
+            with training in Data Analytics, Data Science,
+            Artificial Intelligence and Machine Learning.
+            Passionate about economic research, analytical
+            problem-solving and transforming data into meaningful insights.
         </p>
 
         <div class="buttons">
@@ -424,14 +473,14 @@
 </header>
 
 
-<!-- ABOUT -->
+<!-- ABOUT SECTION -->
 
 <section id="about">
 
     <h2 class="section-title">About Me</h2>
 
     <p class="section-subtitle">
-        Economics meets data, machine learning and technology.
+        Economics meets data, research and technology.
     </p>
 
     <div class="about-grid">
@@ -443,19 +492,19 @@
             <br>
 
             <p>
-                I am an Economics postgraduate with a background in
-                International Business, combining analytical thinking
-                from economics with practical skills in data science
-                and machine learning.
+                I am a PhD Scholar in Economics at the University
+                of Lucknow, with a postgraduate background in
+                Economics and an undergraduate degree in
+                International Business.
             </p>
 
             <br>
 
             <p>
-                My academic background helps me understand real-world
-                economic and business problems, while my technical
-                skills allow me to analyse data and build
-                data-driven solutions.
+                My academic journey combines economic thinking
+                and research with practical training in
+                Data Analytics, Data Science, Artificial
+                Intelligence and Machine Learning.
             </p>
 
         </div>
@@ -468,18 +517,52 @@
             <br>
 
             <p>
-                I work with Python, SQL, Excel, Power BI, Tableau,
-                Pandas, NumPy and machine learning tools such as
-                Scikit-learn.
+                I work with Python, SQL, Excel, Power BI,
+                Tableau, Pandas, NumPy and machine learning
+                tools such as Scikit-learn.
             </p>
 
             <br>
 
             <p>
-                I enjoy building predictive models, exploring datasets,
-                creating visualizations and developing interactive
-                applications with Streamlit.
+                I enjoy analysing datasets, developing
+                predictive models, creating visualisations
+                and building interactive applications.
+                I am particularly interested in applying
+                quantitative methods to real-world
+                economic and business problems.
             </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RESEARCH INTERESTS -->
+
+<section id="research">
+
+    <h2 class="section-title">Research Interests</h2>
+
+    <p class="section-subtitle">
+        Areas of academic interest and exploration.
+    </p>
+
+    <div class="card">
+
+        <h3>Economics & Applied Research</h3>
+
+        <div class="research-list">
+
+            <div class="research-item">Macroeconomics</div>
+            <div class="research-item">Inflation</div>
+            <div class="research-item">Monetary Policy</div>
+            <div class="research-item">Econometrics</div>
+            <div class="research-item">Food Price Volatility</div>
+            <div class="research-item">Household Inflation Expectations</div>
+            <div class="research-item">Applied Quantitative Research</div>
 
         </div>
 
@@ -495,32 +578,27 @@
     <h2 class="section-title">Skills</h2>
 
     <p class="section-subtitle">
-        Technologies and analytical tools I work with.
+        Technical tools and analytical capabilities.
     </p>
 
     <div class="skills">
 
         <div class="skill">Python</div>
         <div class="skill">SQL</div>
-        
+        <div class="skill">Advanced Microsoft Excel</div>
         <div class="skill">Pandas</div>
         <div class="skill">NumPy</div>
-        <div class="skill">Advanced Microsoft Excel</div>
-        
-        <div class="skill">Machine Learning</div>
-        <div class="skill">Scikit-learn</div>
-        <div class="skill">Data Science</div>
-        
         <div class="skill">Matplotlib</div>
+        <div class="skill">Scikit-learn</div>
+        <div class="skill">Machine Learning</div>
+        <div class="skill">Data Science</div>
+        <div class="skill">Artificial Intelligence</div>
         <div class="skill">Power BI</div>
         <div class="skill">Tableau</div>
         <div class="skill">Data Visualization</div>
-
         <div class="skill">Streamlit</div>
-        
         <div class="skill">Econometrics</div>
         <div class="skill">Statistical Analysis</div>
-
         <div class="skill">GitHub</div>
 
     </div>
@@ -535,26 +613,34 @@
     <h2 class="section-title">Projects</h2>
 
     <p class="section-subtitle">
-        Selected projects where I apply data analysis, machine learning and quantitative thinking.
+        Selected projects applying data analysis,
+        machine learning and quantitative thinking.
     </p>
 
     <div class="projects">
+
 
         <!-- PROJECT 1 -->
 
         <div class="project">
 
-            <div class="project-number">01 / MACHINE LEARNING</div>
+            <div class="project-number">
+                01 / MACHINE LEARNING
+            </div>
 
             <h3>Diamond Price Prediction</h3>
 
             <p>
-                An end-to-end machine learning application that predicts diamond
-                prices using 53,920 records and 9 physical and quality features.
-                I compared Linear Regression, Decision Tree and Random Forest
-                models, with Random Forest achieving the best R² score of 0.999971.
-                The project also includes an interactive Streamlit prediction
-                interface and data visualization dashboard.
+                An end-to-end machine learning application
+                that predicts diamond prices using 53,920
+                records and 9 physical and quality features.
+                I compared Linear Regression, Decision Tree
+                and Random Forest models, with Random Forest
+                achieving the best R² score of 0.999971.
+
+                The project also includes an interactive
+                Streamlit prediction interface and
+                data visualisation dashboard.
             </p>
 
             <div class="project-tags">
@@ -565,18 +651,24 @@
                 <span>Streamlit</span>
             </div>
 
-            <br>
+            <div class="project-links">
 
-            <a href="https://github.com/saniyasiddiqui0875-commits/diamond-price-prediction"
-               target="_blank"
-               class="btn">
-                View on GitHub →
-            </a> 
-            <a href="https://diamond-price-prediction-saniya.streamlit.app/"
-                target="_blank"
-                class="btn">
-                Live Demo →
-            </a>
+                <a href="https://github.com/saniyasiddiqui0875-commits/diamond-price-prediction"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn">
+                    View on GitHub →
+                </a>
+
+                <a href="https://diamond-price-prediction-saniya.streamlit.app/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn">
+                    Live Demo →
+                </a>
+
+            </div>
+
         </div>
 
 
@@ -584,17 +676,23 @@
 
         <div class="project">
 
-            <div class="project-number">02 / MACHINE LEARNING</div>
+            <div class="project-number">
+                02 / MACHINE LEARNING
+            </div>
 
             <h3>Stock Market Price Prediction</h3>
 
             <p>
-                A machine learning application that predicts Apple's (AAPL)
-                closing stock price using Linear Regression and historical
-                market data. The project includes data preprocessing,
-                feature engineering, 20-day and 50-day moving averages,
-                interactive visualizations and actual vs predicted price
-                analysis. The model achieved an R² score of 0.9552,
+                A machine learning application that predicts
+                Apple's (AAPL) closing stock price using
+                Linear Regression and historical market data.
+
+                The project includes data preprocessing,
+                feature engineering, 20-day and 50-day
+                moving averages, interactive visualisations
+                and actual vs predicted price analysis.
+
+                The model achieved an R² score of 0.9552,
                 with an MAE of 4.19 and RMSE of 5.09.
             </p>
 
@@ -606,25 +704,30 @@
                 <span>yfinance</span>
             </div>
 
-            <br>
+            <div class="project-links">
 
-            <a href="https://github.com/saniyasiddiqui0875-commits/Stock-Market-Price-Prediction"
-               target="_blank"
-               class="btn">
-                View on GitHub →
-            </a>
-            
-<a href="https://stock-market-price-prediction-3zjh3qhluxf8y5jtwsbvow.streamlit.app/"
-   target="_blank"
-   class="btn">
-    Live Demo →
-</a>
-</div>
+                <a href="https://github.com/saniyasiddiqui0875-commits/Stock-Market-Price-Prediction"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn">
+                    View on GitHub →
+                </a>
+
+                <a href="https://stock-market-price-prediction-3zjh3qhluxf8y5jtwsbvow.streamlit.app/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn">
+                    Live Demo →
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
-    
+
 
 <!-- EDUCATION -->
 
@@ -637,6 +740,23 @@
     </p>
 
     <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <h3>PhD in Economics</h3>
+
+            <p>
+                University of Lucknow, Lucknow · 2026–Present
+            </p>
+
+            <p>
+                Research interests: Inflation, Food Price
+                Volatility and Household Inflation Expectations.
+            </p>
+
+        </div>
+
 
         <div class="timeline-item">
 
@@ -670,7 +790,7 @@
 
         </div>
 
-        
+
         <div class="timeline-item">
 
             <h3>Data Science & AI/ML Training</h3>
@@ -681,22 +801,25 @@
 
         </div>
 
-  </div>
-          
+    </div>
 
 </section>
 
-<!-- ACHIEVEMENTS & PARTICIPATION -->
+
+<!-- ACHIEVEMENTS -->
 
 <section id="achievements">
 
-    <h2 class="section-title">Achievements & Participation</h2>
+    <h2 class="section-title">
+        Achievements & Participation
+    </h2>
 
     <p class="section-subtitle">
         Selected internships, competitions and academic engagements.
     </p>
 
     <div class="timeline">
+
 
         <div class="timeline-item">
 
@@ -708,6 +831,7 @@
 
             <a href="https://internshala.com/student/certificate/332115773/ijf5ggnm3e6"
                target="_blank"
+               rel="noopener noreferrer"
                class="btn">
                 View Credential →
             </a>
@@ -725,6 +849,7 @@
 
             <a href="https://internshala.com/student/certificate/195674222/45x4gzbp0h3"
                target="_blank"
+               rel="noopener noreferrer"
                class="btn">
                 View Credential →
             </a>
@@ -742,6 +867,7 @@
 
             <a href="https://unstop.com/certificate-preview/d60bd63a-d12a-4c31-a706-86df71acefad"
                target="_blank"
+               rel="noopener noreferrer"
                class="btn">
                 View Credential →
             </a>
@@ -759,6 +885,7 @@
 
             <a href="https://unstop.com/certificate-preview/d90fefb5-7ef2-4a96-b8d0-4c234860ac19"
                target="_blank"
+               rel="noopener noreferrer"
                class="btn">
                 View Credential →
             </a>
@@ -769,7 +896,7 @@
 
 </section>
 
-    
+
 <!-- CONTACT -->
 
 <section id="contact" class="contact">
@@ -777,31 +904,32 @@
     <h2 class="section-title">Let's Connect</h2>
 
     <p>
-        I'm currently exploring opportunities in Data Science,
-        Data Analytics and AI/ML. Feel free to connect with me.
+        I am interested in academic research,
+        data analytics, data science and AI/ML.
+        Feel free to connect for research discussions,
+        collaborations and professional opportunities.
     </p>
 
     <div class="buttons">
 
-        <!-- Replace these links later -->
-
         <a href="https://github.com/saniyasiddiqui0875-commits"
-            target="_blank"
-            class="btn btn-primary">
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-primary">
             GitHub
         </a>
 
-       <a href="https://www.linkedin.com/in/saniya-siddiqui-98a4b71b7/"
+        <a href="https://www.linkedin.com/in/saniya-siddiqui-98a4b71b7/"
            target="_blank"
+           rel="noopener noreferrer"
            class="btn">
-           LinkedIn
-       </a>
+            LinkedIn
+        </a>
 
-       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=saniyasiddiqui0875@gmail.com"
-           target="_blank"
+        <a href="mailto:saniyasiddiqui0875@gmail.com"
            class="btn">
-           Email Me
-       </a>
+            Email Me
+        </a>
 
     </div>
 
